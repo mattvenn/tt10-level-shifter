@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 -290 390 510 790 {flags=graph
+B 2 -290 380 510 780 {flags=graph
 y1=0
 y2=1.8
 ypos1=0
@@ -14,28 +14,30 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=1e-05
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node=test_signal
 color=6
-dataset=-1
+
 unitx=1
 logx=0
 logy=0
-}
+
+rainbow=1
+dataset=-1}
 B 2 -290 -50 510 350 {flags=graph
-y1=-0.64671584
-y2=2.3207882
+y1=0.59
+y2=1.8
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=1e-05
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -43,32 +45,36 @@ ylabmag=1.0
 node="vdd
 v_adj"
 color="6 7"
-dataset=-1
+
 unitx=1
 logx=0
 logy=0
-}
+rainbow=0
+dataset=-1}
 B 2 -290 850 510 1250 {flags=graph
-y1=-0.3
-y2=1.9
+y1=-0.17
+y2=2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=1e-05
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node=test_out
-color=6
-dataset=-1
+node="test_out
+test_signal"
+color="6 7"
+
 unitx=1
 logx=0
 logy=0
-}
+
+rainbow=0
+dataset=-1}
 N -610 90 -610 110 {
 lab=GND}
 N -640 10 -610 10 {
@@ -98,7 +104,7 @@ value="
 
 "
 spice_ignore=false}
-C {devices/vsource.sym} -610 60 0 0 {name=V4 value="pulse(0 1.8 0 10n 10n 100n 200n)" savecurrent=false}
+C {devices/vsource.sym} -610 60 0 0 {name=V4 value="pulse(0 1.8 0 10n 10n 250n 500n)" savecurrent=false}
 C {devices/gnd.sym} -610 110 0 0 {name=l4 lab=GND}
 C {devices/lab_pin.sym} -640 10 0 0 {name=p9 sig_type=std_logic lab=test_signal
 }
@@ -111,12 +117,24 @@ only_toplevel=false
 value="
 * .options filetype=ascii
 .control
-tran 1n 10u
-write tb_level.raw
+  let vstart = 1.8
+  let vstop = 0.5
+  let vstep = -0.1
+  let vcurrent = vstart
+  while vcurrent >= vstop
+    alter V9 vcurrent
+    alter @V4[PULSE] [ 0 \{vcurrent\} 0 10n 10n 200n 500n ]
+    tran 0.1n 1u
+    write tb_level.raw
+    set appendwrite
+
+    let vcurrent = vcurrent + vstep
+  end
 .endc
+
 .end
 "}
-C {devices/vsource.sym} -1090 50 0 0 {name=V9 value="PWL(0s 1.8V 10us 0V)" savecurrent=false}
+C {devices/vsource.sym} -1090 50 0 0 {name=V9 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -1090 90 0 0 {name=l12 lab=GND}
 C {devices/lab_pin.sym} -1090 10 2 1 {name=p18 sig_type=std_logic lab=v_adj
 }
