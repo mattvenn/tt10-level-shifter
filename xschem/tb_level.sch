@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=1e-06
+x1=-4.3050742e-08
+x2=9.169492e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,44 +36,43 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=1e-06
+x1=-4.3050742e-08
+x2=9.169492e-07
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="vdd
-v_adj"
-color="6 7"
+node=v_adj
+color=6
 
 unitx=1
 logx=0
 logy=0
-rainbow=0
+rainbow=1
 dataset=-1}
 B 2 -290 850 510 1250 {flags=graph
-y1=-0.17
+y1=-0.16
 y2=2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=1e-06
+x1=-4.3050742e-08
+x2=9.169492e-07
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node="test_out
 test_signal"
-color="6 7"
+color="9 6"
 
 unitx=1
 logx=0
 logy=0
 
-rainbow=0
+rainbow=1
 dataset=-1}
 N -610 90 -610 110 {
 lab=GND}
@@ -104,7 +103,7 @@ value="
 
 "
 spice_ignore=false}
-C {devices/vsource.sym} -610 60 0 0 {name=V4 value="pulse(0 1.8 0 10n 10n 250n 500n)" savecurrent=false}
+C {devices/vsource.sym} -610 60 0 0 {name=V4 value="1.8" savecurrent=false}
 C {devices/gnd.sym} -610 110 0 0 {name=l4 lab=GND}
 C {devices/lab_pin.sym} -640 10 0 0 {name=p9 sig_type=std_logic lab=test_signal
 }
@@ -123,7 +122,7 @@ value="
   let vcurrent = vstart
   while vcurrent >= vstop
     alter V9 vcurrent
-    alter @V4[PULSE] [ 0 \{vcurrent\} 0 10n 10n 200n 500n ]
+    alter @V4[PULSE] [ 0 $&vcurrent 0 10n 10n 200n 500n ]
     tran 0.1n 1u
     write tb_level.raw
     set appendwrite
