@@ -73,7 +73,7 @@ logx=0
 logy=0
 
 rainbow=1
-dataset=-1}
+dataset=12}
 N -610 90 -610 110 {
 lab=GND}
 N -640 10 -610 10 {
@@ -118,12 +118,12 @@ value="
 .control
   let vstart = 1.8
   let vstop = 0.5
-  let vstep = -0.1
+  let vstep = -0.05
   let vcurrent = vstart
   while vcurrent >= vstop
     alter V9 vcurrent
     alter @V4[PULSE] [ 0 $&vcurrent 0 10n 10n 200n 500n ]
-    tran 0.1n 1u
+    tran 0.05n 1u
     write tb_level.raw
     set appendwrite
 

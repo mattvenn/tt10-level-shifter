@@ -75,7 +75,7 @@ N 160 -30 160 0 {
 lab=VPWR_H}
 C {sky130_fd_pr/pfet_01v8.sym} -130 0 0 1 {name=M1
 L=0.15
-W=1
+W=2
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -89,7 +89,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 140 0 0 0 {name=M2
 L=0.15
-W=1
+W=2
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -131,7 +131,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 320 110 0 1 {name=M5
 L=0.15
-W=1
+W=2
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
