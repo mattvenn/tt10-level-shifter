@@ -51,8 +51,8 @@ logy=0
 rainbow=1
 dataset=-1}
 B 2 -290 850 510 1250 {flags=graph
-y1=-0.16
-y2=2
+y1=0
+y2=0.2
 ypos1=0
 ypos2=2
 divy=5
@@ -73,7 +73,7 @@ logx=0
 logy=0
 
 rainbow=1
-dataset=12}
+dataset=4}
 N -610 90 -610 110 {
 lab=GND}
 N -640 10 -610 10 {
@@ -88,11 +88,11 @@ N -1180 10 -1180 20 {
 lab=vdd}
 N -1180 80 -1180 90 {
 lab=GND}
-N -730 310 -680 310 {
+N -730 430 -680 430 {
 lab=vdd}
-N -730 270 -640 270 {
+N -730 390 -640 390 {
 lab=test_out}
-N -730 290 -640 290 {
+N -730 410 -640 410 {
 lab=v_adj}
 C {devices/code.sym} -1050 600 0 0 {name=TT_MODELS
 only_toplevel=true
@@ -116,9 +116,9 @@ only_toplevel=false
 value="
 * .options filetype=ascii
 .control
-  let vstart = 1.8
-  let vstop = 0.5
-  let vstep = -0.05
+  let vstart = 0.6
+  let vstop = 0.2
+  let vstep = -0.1
   let vcurrent = vstart
   while vcurrent >= vstop
     alter V9 vcurrent
@@ -141,13 +141,13 @@ C {devices/vsource.sym} -1180 50 0 0 {name=V10 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -1180 90 0 0 {name=l13 lab=GND}
 C {devices/lab_pin.sym} -1180 10 2 1 {name=p19 sig_type=std_logic lab=vdd
 }
-C {level_shifter.sym} -880 300 0 0 {name=x1}
-C {devices/gnd.sym} -730 330 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} -680 310 0 1 {name=p1 sig_type=std_logic lab=vdd
+C {level_shifter2.sym} -880 420 0 0 {name=x2}
+C {devices/lab_pin.sym} -1030 390 0 0 {name=p5 sig_type=std_logic lab=test_signal
 }
-C {devices/lab_pin.sym} -1030 270 0 0 {name=p2 sig_type=std_logic lab=test_signal
+C {devices/gnd.sym} -730 450 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} -680 430 0 1 {name=p6 sig_type=std_logic lab=vdd
 }
-C {devices/lab_pin.sym} -640 270 0 1 {name=p3 sig_type=std_logic lab=test_out
+C {devices/lab_pin.sym} -640 390 0 1 {name=p7 sig_type=std_logic lab=test_out
 }
-C {devices/lab_pin.sym} -640 290 0 1 {name=p4 sig_type=std_logic lab=v_adj
+C {devices/lab_pin.sym} -640 410 0 1 {name=p8 sig_type=std_logic lab=v_adj
 }
