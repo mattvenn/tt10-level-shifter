@@ -3,7 +3,7 @@ set source [readnet spice /dev/null]
 readnet spice $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice $source
 
 # top level GL verilog
-readnet verilog ../src/project.v $source
+#readnet verilog ../src/project.v $source
 
 # add an GL verilog of any digital blocks:
 # readnet verilog ../verilog/gl/your_design.v $source
