@@ -15,8 +15,8 @@ The 3.3v VAPWR rail is used as a variable supply to a single inverter.
 
 ## How to test
 
-Explain how to use your project
+Top has an inverter, Botton is on analog pins
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Scope.
