@@ -25,15 +25,25 @@ module tt_um_mattvenn_level_shifter (
     sky130_fd_sc_hd__inv_2 sky130_fd_sc_hd__inv_2 (
     .A(ui_in[0]),
     .Y(inverted),
+    .VNB(VGND),
+    .VPB(VAPWR),
     .VPWR(VAPWR),
     .VGND(VGND)
     );
-    level_shifter2 level_shifter2 (
+    level_shifter2 level_shifter2_0 (
     .VDD(VDPWR),
     .VDD_L(VAPWR),
     .GND(VGND),
     .IN(inverted),
     .OUT(uo_out[0])
+    );
+
+    level_shifter2 level_shifter2_1 (
+    .VDD(VDPWR),
+    .VDD_L(VAPWR),
+    .GND(VGND),
+    .IN(ua[1]),
+    .OUT(ua[0])
     );
 
 endmodule

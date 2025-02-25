@@ -9,7 +9,9 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Danger! Enabling this design without first removing the 3.3v VAPWR will blow the design.
+
+The 3.3v VAPWR rail is used as a variable supply to a single inverter. 
 
 ## How to test
 
