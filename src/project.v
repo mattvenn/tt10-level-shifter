@@ -5,10 +5,10 @@
 
 `default_nettype none
 
-module tt_um_example (
+module tt_um_mattvenn_level_shifter (
     input  wire       VGND,
     input  wire       VDPWR,    // 1.8v power supply
-//    input  wire       VAPWR,    // 3.3v power supply
+    input  wire       VAPWR,    // 3.3v power supply
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
@@ -19,5 +19,21 @@ module tt_um_example (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+
+    wire inverted;
+
+    sky130_fd_sc_hd__inv_2 sky130_fd_sc_hd__inv_2 (
+    .A(ui_in[0]),
+    .Y(inverted),
+    .VPWR(VAPWR),
+    .VGND(VGND)
+    );
+    level_shifter2 level_shifter2 (
+    .VDD(VDPWR),
+    .VDD_L(VAPWR),
+    .GND(VGND),
+    .IN(inverted),
+    .OUT(uo_out[0])
+    );
 
 endmodule
