@@ -444,8 +444,10 @@ MACRO tt_um_mattvenn_level_shifter
     END
   END VAPWR
   OBS
+      LAYER nwell ;
+        RECT 90.750 10.290 132.940 215.450 ;
       LAYER li1 ;
-        RECT 90.940 12.290 132.760 215.340 ;
+        RECT 90.940 12.290 132.760 215.345 ;
       LAYER met1 ;
         RECT 82.400 3.150 137.100 215.700 ;
       LAYER met2 ;
