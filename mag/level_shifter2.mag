@@ -195,7 +195,7 @@ box -256 -221 256 221
 << labels >>
 flabel metal1 4800 -300 5000 -100 0 FreeSans 256 0 0 0 VDD
 port 1 nsew
-flabel metal1 4840 -1680 5040 -1480 0 FreeSans 256 0 0 0 GND
+flabel metal1 4840 -1680 5040 -1480 0 FreeSans 256 0 0 0 VSS
 port 0 nsew
 flabel metal1 3640 -300 3840 -100 0 FreeSans 256 0 0 0 VDD_L
 port 2 nsew

@@ -33,7 +33,7 @@ module tt_um_mattvenn_level_shifter (
     level_shifter2 level_shifter2_0 (
     .VDD(VDPWR),
     .VDD_L(VAPWR),
-    .GND(VGND),
+    .VSS(VGND),
     .IN(inverted),
     .OUT(uo_out[0])
     );
@@ -41,7 +41,7 @@ module tt_um_mattvenn_level_shifter (
     level_shifter2 level_shifter2_1 (
     .VDD(VDPWR),
     .VDD_L(ua[2]),
-    .GND(VGND),
+    .VSS(VGND),
     .IN(ua[1]),
     .OUT(ua[0])
     );
