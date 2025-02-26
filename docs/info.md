@@ -23,6 +23,8 @@ This [level shifter](https://xschem-viewer.com/?file=https%3A%2F%2Fgithub.com%2F
 
 Graph shows an input signal of 0.2v resulting in a full swing 1.8v on the output.
 
+### Theory of operation
+
 ![level](level_schematic.png)
 
 * M4 and M11 create a reference voltage `src_n` about half of VDD_L.
@@ -35,28 +37,29 @@ This design features 2 of these level shifters, one connected to the digital pin
 
 ### Digital version
 
-ui_in[0] is connected to the input of an inverter standard cell. The inverter is powered by the low power rail (VAPWR).
+ui[0] is connected to the input of an inverter standard cell. The inverter is powered by the low power rail (VAPWR).
 
-The level shifter receives input from the inverter and outputs to ua_out[0].
+The level shifter receives input from the inverter and outputs to uo[0].
 
 ### Analog version
 
-In, Out and VDD_L are connected to the level shifter. VDD comes from the 1.8v supply.
+Analog pins In, Out and VDD_L are connected to the level shifter. VDD comes from the 1.8v supply.
 
 ## How to test
 
 ### Digital version
 
 * Set up the variable PSU (see above), and set it to 1.8v.
-* Input a test signal to ui_in[0].
-* Observe output signal on uo_out[0].
+* Input a test signal to A: ui[0].
+* Observe output signal on Y: uo[0].
 * Lower the variable PSU and the output signal should stay full swing until about 0.2v.
 
 ### Analog version
 
-* Supply 1.8v or less to vdd_l pin.
-* Supply test input signal to the in pin.
-* Observe the out pin.
+* Supply 1.8v or less to `vdd_l` pin.
+* Supply test input signal to the `in` pin.
+* Observe the `out` pin.
+* Lower the variable PSU and the output signal should stay full swing until about 0.2v.
 
 ## External hardware
 
