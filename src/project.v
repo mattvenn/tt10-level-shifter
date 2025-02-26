@@ -40,7 +40,7 @@ module tt_um_mattvenn_level_shifter (
 
     level_shifter2 level_shifter2_1 (
     .VDD(VDPWR),
-    .VDD_L(VAPWR),
+    .VDD_L(ua[2]),
     .GND(VGND),
     .IN(ua[1]),
     .OUT(ua[0])
