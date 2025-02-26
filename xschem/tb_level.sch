@@ -7,52 +7,6 @@ S {}
 E {}
 B 2 -290 380 510 780 {flags=graph
 y1=0
-y2=0.61
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-4.3050742e-08
-x2=9.169492e-07
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node=test_signal
-color=6
-
-unitx=1
-logx=0
-logy=0
-
-rainbow=1
-dataset=-1}
-B 2 -290 -50 510 350 {flags=graph
-y1=0.2
-y2=1.8
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-4.3050742e-08
-x2=9.169492e-07
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node="v_adj
-vdd"
-color="6 5"
-
-unitx=1
-logx=0
-logy=0
-rainbow=1
-dataset=-1}
-B 2 -290 850 510 1250 {flags=graph
-y1=0
 y2=1.9
 ypos1=0
 ypos2=2
@@ -65,14 +19,36 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="test_out
-test_signal"
-color="5 8"
+node="test_signal
+test_out"
+color="6 4"
 
 unitx=1
 logx=0
 logy=0
 
+rainbow=0
+dataset=4}
+B 2 -290 -50 510 350 {flags=graph
+y1=0.2
+y2=0.61
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-4.3050742e-08
+x2=9.169492e-07
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=v_adj
+color=6
+
+unitx=1
+logx=0
+logy=0
 rainbow=1
 dataset=-1}
 N -610 90 -610 110 {
@@ -89,6 +65,8 @@ N -1180 10 -1180 20 {
 lab=vdd}
 N -1180 80 -1180 90 {
 lab=GND}
+N -730 430 -700 430 {
+lab=v_adj}
 C {devices/code.sym} -1050 600 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -112,7 +90,7 @@ value="
 * .options filetype=ascii
 .control
   let vstart = 0.6
-  let vstop = 0.5
+  let vstop = 0.2
   let vstep = -0.1
   let vcurrent = vstart
   while vcurrent >= vstop
@@ -136,7 +114,6 @@ C {devices/vsource.sym} -1180 50 0 0 {name=V10 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -1180 90 0 0 {name=l13 lab=GND}
 C {devices/lab_pin.sym} -1180 10 2 1 {name=p19 sig_type=std_logic lab=vdd
 }
-C {level_shifter2.sym} -880 420 0 0 {name=x2}
 C {devices/lab_pin.sym} -1030 390 0 0 {name=p5 sig_type=std_logic lab=test_signal
 }
 C {devices/gnd.sym} -730 390 0 0 {name=l2 lab=GND}
@@ -144,5 +121,6 @@ C {devices/lab_pin.sym} -730 410 0 1 {name=p6 sig_type=std_logic lab=vdd
 }
 C {devices/lab_pin.sym} -730 450 0 1 {name=p7 sig_type=std_logic lab=test_out
 }
-C {devices/lab_pin.sym} -730 430 0 1 {name=p8 sig_type=std_logic lab=v_adj
+C {devices/lab_pin.sym} -700 430 0 1 {name=p8 sig_type=std_logic lab=v_adj
 }
+C {level_shifter2.sym} -880 420 0 0 {name=x1}
