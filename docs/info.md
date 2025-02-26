@@ -19,7 +19,11 @@ The [traditional level shifter](https://xschem-viewer.com/?file=https://github.c
 
 This [level shifter](https://xschem-viewer.com/?file=https%3A%2F%2Fgithub.com%2Fmattvenn%2Ftt10-level-shifter%2Fblob%2Fmain%2Fxschem%2Flevel_shifter2.sch) was designed by Sylvain Munaut and operates down to around 0.2v.
 
-![level](level.png)
+![graph](level_shifter.png)
+
+Graph shows an input signal of 0.2v resulting in a full swing 1.8v on the output.
+
+![level](level_schematic.png)
 
 * M4 and M11 create a reference voltage `src_n` about half of VDD_L.
 * M2, M3 and M1 create a current source for the differential pair.
