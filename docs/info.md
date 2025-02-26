@@ -19,7 +19,7 @@ The [traditional level shifter](https://xschem-viewer.com/?file=https://github.c
 
 This [level shifter](https://xschem-viewer.com/?file=https%3A%2F%2Fgithub.com%2Fmattvenn%2Ftt10-level-shifter%2Fblob%2Fmain%2Fxschem%2Flevel_shifter2.sch) was designed by Sylvain Munaut and operates down to around 0.2v.
 
-![graph](level_shifter.png)
+![graph](level_graph.png)
 
 Graph shows an input signal of 0.2v resulting in a full swing 1.8v on the output.
 
